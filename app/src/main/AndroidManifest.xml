@@ -10,7 +10,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ChatActivity"></activity>
+        <activity
+            android:name=".ChatActivity"
+            android:theme="@style/AppThemNo">
+
+
+        </activity>
         <activity
             android:name=".LoginActivity"
             android:theme="@style/AppTheme.DarkActionBar">
@@ -45,6 +50,7 @@
             </intent-filter>
         </activity>
     </application>
+
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
 
