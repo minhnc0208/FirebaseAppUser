@@ -16,15 +16,15 @@
             android:layout_height="50dp"
             android:id="@+id/profileIv"
             app:c_border_color="@null"
-            android:src="@drawable/ic_default_img"
-            android:visibility="gone"/>
+            android:visibility="gone"
+            android:src="@drawable/ic_default_img"/>
+
         <TextView
             android:id="@+id/timeTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="02/08/2000 12:00 AM"
+            android:text="02/03/2019 05:59 AM/PM"
             android:textColor="@color/colorBlack"
-            android:textSize="12sp"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/messageTv"
@@ -39,14 +39,17 @@
 
 
 
+
     </LinearLayout>
+
 
     <TextView
         android:id="@+id/isSeenTv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:gravity="end"
         android:textAlignment="textEnd"
-        android:text="Delivered" />
+        android:text="delivered"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 
 </LinearLayout>

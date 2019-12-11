@@ -42,7 +42,7 @@ public class AdapterChat extends RecyclerView.Adapter<AdapterChat.MyHolder> {
     @Override
     public MyHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
-        // inflate layouts: row_chat_left.xml for receiver, row_chat_right.xml for sender
+        // infalte layouts: row_chat_left.xml for receiver, row_chat_right.xml for sender
 
         if (i == MSG_TYPE_RIGHT) {
             View view = LayoutInflater.from(context).inflate(R.layout.row_chat_right, viewGroup, false);
@@ -51,7 +51,6 @@ public class AdapterChat extends RecyclerView.Adapter<AdapterChat.MyHolder> {
             View view = LayoutInflater.from(context).inflate(R.layout.row_chat_left, viewGroup, false);
             return new MyHolder(view);
         }
-
     }
 
     @Override
@@ -67,7 +66,7 @@ public class AdapterChat extends RecyclerView.Adapter<AdapterChat.MyHolder> {
         Calendar cal = Calendar.getInstance(Locale.ENGLISH);
         cal.setTimeInMillis(Long.parseLong(timeStamp));
 
-        String dateTime = DateFormat.format("dd//MM/yyyy hh:mm aa", cal).toString();
+        String dateTime = DateFormat.format("dd/MM/yyyy hh:mm aa", cal).toString();
 
         // set data
 
@@ -75,17 +74,16 @@ public class AdapterChat extends RecyclerView.Adapter<AdapterChat.MyHolder> {
         myHolder.timeTv.setText(dateTime);
 
         try {
-
-            Picasso.get().load(imageUrl).into(myHolder.profileIv);
-
-        } catch (Exception e) {
-
+            Picasso.get().load(imageUrl).into(myHolder.profileTv);
+        }
+        catch (Exception e) {
 
         }
 
-        // set seen / delivered status of message
+        // set seen/delivered status of message
 
         if (i == chatList.size() - 1) {
+
             if (chatList.get(i).isSeen()) {
                 myHolder.isSeenTv.setText("Seen");
             } else {
@@ -94,7 +92,6 @@ public class AdapterChat extends RecyclerView.Adapter<AdapterChat.MyHolder> {
         } else {
             myHolder.isSeenTv.setVisibility(View.GONE);
         }
-
     }
 
     @Override
@@ -108,13 +105,12 @@ public class AdapterChat extends RecyclerView.Adapter<AdapterChat.MyHolder> {
         // get currently signed in user
 
         fUser = FirebaseAuth.getInstance().getCurrentUser();
-
         if (chatList.get(position).getSender().equals(fUser.getUid())) {
             return MSG_TYPE_RIGHT;
+
         } else {
             return MSG_TYPE_LEFT;
         }
-
     }
 
     // view holder class
@@ -123,16 +119,16 @@ public class AdapterChat extends RecyclerView.Adapter<AdapterChat.MyHolder> {
 
         // views
 
-        ImageView profileIv;
+        ImageView profileTv;
         TextView messageTv, timeTv, isSeenTv;
 
-
         public MyHolder(@NonNull View itemView) {
+
             super(itemView);
 
             // init views
 
-            profileIv = itemView.findViewById(R.id.profileIv);
+            profileTv = itemView.findViewById(R.id.profileIv);
             messageTv = itemView.findViewById(R.id.messageTv);
             timeTv = itemView.findViewById(R.id.timeTv);
             isSeenTv = itemView.findViewById(R.id.isSeenTv);

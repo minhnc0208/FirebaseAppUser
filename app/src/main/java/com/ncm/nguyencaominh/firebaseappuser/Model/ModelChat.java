@@ -3,6 +3,7 @@ package com.ncm.nguyencaominh.firebaseappuser.Model;
 public class ModelChat {
 
     String message, receiver, sender, timestamp;
+
     boolean isSeen;
 
     public ModelChat() {
